@@ -35,7 +35,7 @@
         <button>Reiniciar</button>
         </div>
       </div>
-
+      <div id="snackbar">¡Copiado al portapapeles!</div>
     </main>
 
     <footer>
@@ -46,12 +46,12 @@
     <script>
     var btn = document.getElementById('btn');
     var clipboard = new Clipboard(btn);
-    clipboard.on('success', function(e) {
-        console.log(e);
-    });
-    clipboard.on('error', function(e) {
-        console.log(e);
-    });
+    clipboard.on('success', function() {
+      var x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", "") },3000);
+    }
+    );
     </script>
   </body>
 </html>
