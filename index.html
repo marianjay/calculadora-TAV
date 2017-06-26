@@ -7,17 +7,51 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="tav.css">
+    <link rel="stylesheet" href="css/tav.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
   </head>
   <body>
     <main class="global-wrapper">
       <h1>Calculadora TAV</h1>
-      <h2>
-      <div class="calc-wrapper"></div>
-      <div class="result-wrapper"></div>
+      <h2>Horas, minutos y segundos a minutos</h2>
+
+      <div class="calc-wrapper">
+        <fieldset>
+        <label for="hours">Horas</label>
+        <input type="text" id="hours" name="hours" maxlength="2">
+        <label for="minutes">Minutos</label>
+        <input type="text" id="minutes" name="minutes" maxlength="2">
+        <label for="seconds">Segundos</label>
+        <input type="text" id="seconds" name="seconds" maxlength="2">
+        </fieldset>
+        <button id="calc">Calcular</button>
+      </div>
+
+      <div class="result-wrapper">
+        <label for="result">Resultado</label>
+        <input id="result" type="text" readonly>
+        <div class="botonera">
+        <button id="btn" data-clipboard-target="#result">Copiar</button>
+        <button>Reiniciar</button>
+        </div>
+      </div>
+
     </main>
+
     <footer>
       <p><span class="fa fa-code"></span> con <span class="fa fa-heart"></span> por Mariano Wadi Jacobo, 2017 &copy;</p>
     </footer>
+    <script src="js/calculadora.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+    <script>
+    var btn = document.getElementById('btn');
+    var clipboard = new Clipboard(btn);
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+    </script>
   </body>
 </html>
