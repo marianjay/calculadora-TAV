@@ -31,4 +31,10 @@ console.log(finalMinutes);
 };
 
 document.getElementById('calc').addEventListener('click', calculate);
+document.getElementById("reset").addEventListener('click', reset);
 
+function reset() {
+  document.getElementById("hours").value = "";
+  document.getElementById("minutes").value = "";
+  document.getElementById("seconds").value = "";
+}
